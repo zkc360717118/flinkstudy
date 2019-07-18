@@ -28,7 +28,7 @@ public class SocketWindowWordCountJava {
             ParameterTool parameterTool = ParameterTool.fromArgs(args);
             port = parameterTool.getInt("port");
         } catch (Exception e) {
-            System.err.println("not  port set,will use default port:9000");
+            System.err.println("not  port set,will use default port:9000 --java");
             port = 9000;
         }
 

@@ -18,7 +18,7 @@ object SocketWindowWordCountScala {
       ParameterTool.fromArgs(args).getInt("port")
     }catch{
       case ex: Exception=>{
-        System.err.println("no port set ,use default 9000")
+        System.err.println("no port set ,use default 9000--scala")
       }
         9000
     }
