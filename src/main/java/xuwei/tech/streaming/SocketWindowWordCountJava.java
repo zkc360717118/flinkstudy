@@ -1,6 +1,7 @@
 package xuwei.tech.streaming;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -56,13 +57,13 @@ public class SocketWindowWordCountJava {
             }
         }).keyBy("word")
                 .timeWindow(Time.seconds(2), Time.seconds(1)) //每隔一秒，计算时间窗口为2秒的数据
-//                .sum("count"); // 也可以使用reduce
-                .reduce(new ReduceFunction<WordWithCount>() {
-                    @Override
-                    public WordWithCount reduce(WordWithCount a, WordWithCount b) throws Exception {
-                        return new WordWithCount(a.word, a.count + b.count);
-                    }
-                });
+                .sum("count"); // 也可以使用reduce
+//                .reduce(new ReduceFunction<WordWithCount>() {
+//                    @Override
+//                    public WordWithCount reduce(WordWithCount a, WordWithCount b) throws Exception {
+//                        return new WordWithCount(a.word, a.count + b.count);
+//                    }
+//                });
 
         //把数据打印到控制台
         windowCount.print().setParallelism(1);
