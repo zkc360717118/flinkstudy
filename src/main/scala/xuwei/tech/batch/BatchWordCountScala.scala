@@ -1,4 +1,4 @@
-package xuwei.tech.streaming
+package xuwei.tech.batch
 
 import org.apache.flink.api.common.operators.Order
 import org.apache.flink.api.scala.ExecutionEnvironment
